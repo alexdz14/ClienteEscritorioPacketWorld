@@ -77,7 +77,19 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void clicAdminSucursales(ActionEvent event) {
-        Utilidades.mostrarAlertaSimple("Pendiente", "Módulo de Sucursales en construcción", Alert.AlertType.INFORMATION);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAdminSucursales.fxml"));
+            Parent root = loader.load();
+
+            Stage escenario = new Stage();
+            escenario.setScene(new Scene(root));
+            escenario.setTitle("Gestión de Sucursales");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+
+        } catch (Exception e) {
+            Utilidades.mostrarAlertaSimple("Error", "Error al abrir sucursales: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML

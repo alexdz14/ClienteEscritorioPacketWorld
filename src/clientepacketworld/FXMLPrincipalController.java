@@ -6,10 +6,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class FXMLPrincipalController implements Initializable {
@@ -40,7 +44,19 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void clicAdminColaboradores(ActionEvent event) {
-        Utilidades.mostrarAlertaSimple("Pendiente", "Módulo de Colaboradores en construcción", Alert.AlertType.INFORMATION);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAdminColaborador.fxml"));
+            Parent root = loader.load();
+            Scene escena = new Scene(root);
+            Stage escenario = new Stage();
+            escenario.setScene(escena);
+            escenario.setTitle("Administración de Colaboradores");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+
+        } catch (Exception e) {
+            Utilidades.mostrarAlertaSimple("Error", "No se pudo abrir la ventana: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientepacketworld.FXMLFormularioColaboradorController">
+   <children>
+      <Pane prefHeight="60.0" prefWidth="750.0" style="-fx-background-color: #005eff;">
+         <children>
+            <Label layoutX="24.0" layoutY="14.0" text="Datos del Colaborador" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      
+      <Label layoutX="30.0" layoutY="80.0" text="Nombre:" />
+      <TextField fx:id="tfNombre" layoutX="30.0" layoutY="100.0" prefWidth="200.0" />
+      
+      <Label layoutX="250.0" layoutY="80.0" text="Apellido Paterno:" />
+      <TextField fx:id="tfApellidoPaterno" layoutX="250.0" layoutY="100.0" prefWidth="200.0" />
+      
+      <Label layoutX="470.0" layoutY="80.0" text="Apellido Materno:" />
+      <TextField fx:id="tfApellidoMaterno" layoutX="470.0" layoutY="100.0" prefWidth="200.0" />
+      
+      <Label layoutX="30.0" layoutY="150.0" text="CURP:" />
+      <TextField fx:id="tfCurp" layoutX="30.0" layoutY="170.0" prefWidth="200.0" />
+      
+      <Label layoutX="250.0" layoutY="150.0" text="Correo Electrónico:" />
+      <TextField fx:id="tfCorreo" layoutX="250.0" layoutY="170.0" prefWidth="420.0" />
+      
+      <Label layoutX="30.0" layoutY="220.0" text="No. Personal:" />
+      <TextField fx:id="tfNoPersonal" layoutX="30.0" layoutY="240.0" prefWidth="200.0" />
+      
+      <Label layoutX="250.0" layoutY="220.0" text="Contraseña:" />
+      <PasswordField fx:id="pfContrasenia" layoutX="250.0" layoutY="240.0" prefWidth="200.0" />
+      
+      <Label layoutX="470.0" layoutY="220.0" text="Sucursal (ID):" />
+      <TextField fx:id="tfIdSucursal" layoutX="470.0" layoutY="240.0" prefWidth="200.0" promptText="Ej. 1" />
+
+      <Label layoutX="30.0" layoutY="290.0" text="Rol:" />
+      <ComboBox fx:id="cbRol" layoutX="30.0" layoutY="310.0" onAction="#seleccionarRol" prefWidth="200.0" />
+      
+      <Label fx:id="lbLicencia" layoutX="250.0" layoutY="290.0" text="No. Licencia:" visible="false" />
+      <TextField fx:id="tfNoLicencia" layoutX="250.0" layoutY="310.0" prefWidth="200.0" visible="false" />
+      
+      <Label layoutX="530.0" layoutY="300.0" text="Fotografía:" />
+      <ImageView fx:id="ivFoto" fitHeight="150.0" fitWidth="150.0" layoutX="530.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: gray;" />
+      <Button layoutX="530.0" layoutY="490.0" mnemonicParsing="false" onAction="#clicCargarFoto" text="Subir Foto..." />
+      
+      <Button layoutX="250.0" layoutY="580.0" mnemonicParsing="false" onAction="#clicGuardar" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #27ae60;" text="Guardar" textFill="WHITE">
+         <font><Font name="System Bold" size="14.0" /></font>
+      </Button>
+      <Button layoutX="400.0" layoutY="580.0" mnemonicParsing="false" onAction="#clicCancelar" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #c0392b;" text="Cancelar" textFill="WHITE">
+         <font><Font name="System Bold" size="14.0" /></font>
+      </Button>
+   </children>
+</AnchorPane>

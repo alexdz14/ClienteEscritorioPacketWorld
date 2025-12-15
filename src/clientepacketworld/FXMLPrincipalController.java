@@ -61,7 +61,18 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void clicAdminUnidades(ActionEvent event) {
-        Utilidades.mostrarAlertaSimple("Pendiente", "Módulo de Unidades en construcción", Alert.AlertType.INFORMATION);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAdminUnidades.fxml"));
+            Parent root = loader.load();
+            Scene escena = new Scene(root);
+            Stage escenario = new Stage();
+            escenario.setScene(escena);
+            escenario.setTitle("Gestión de Unidades");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+        } catch (Exception e) {
+            Utilidades.mostrarAlertaSimple("Error", "No se pudo abrir Unidades: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML

@@ -45,9 +45,19 @@ public class FXMLInicioSesionController implements Initializable {
                 Colaborador colaboradorLogueado = ColaboradorImp.buscarColaborador(noPersonal);
 
                 if (colaboradorLogueado != null) {
+
+                    if ("Conductor".equalsIgnoreCase(colaboradorLogueado.getRol())) {
+                        Utilidades.mostrarAlertaSimple("Acceso Restringido",
+                                "Los conductores no tienen acceso a la versión de escritorio.\n"
+                                + "Por favor utiliza la aplicación móvil.",
+                                Alert.AlertType.WARNING);
+                        return;
+                    }
+
                     Utilidades.mostrarAlertaSimple("Bienvenido",
                             "Hola " + colaboradorLogueado.getNombre() + ", Rol: " + colaboradorLogueado.getRol(),
                             Alert.AlertType.INFORMATION);
+
                     irMenuPrincipal(colaboradorLogueado);
                 } else {
                     Utilidades.mostrarAlertaSimple("Error", "Login correcto pero no se pudo cargar la información del usuario.", Alert.AlertType.ERROR);

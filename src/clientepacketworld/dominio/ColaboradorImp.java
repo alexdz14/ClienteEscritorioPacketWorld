@@ -100,14 +100,26 @@ public class ColaboradorImp {
     public static List<Colaborador> obtenerTodosColaboradores() {
         List<Colaborador> lista = null;
         String url = Constantes.URL_WS + "colaborador/getAll";
-
+        
         RespuestaHTTP respuesta = ConexionAPI.peticionGET(url);
-
+        
+        // --- CÓDIGO DE DIAGNÓSTICO (Borrar luego) ---
+        System.out.println("Solicitando: " + url);
+        System.out.println("Código respuesta: " + respuesta.getCodigo());
+        // ---------------------------------------------
+        
         if (respuesta.getCodigo() == HttpURLConnection.HTTP_OK) {
             Gson gson = new Gson();
-            Type tipoLista = new TypeToken<List<Colaborador>>() {
-            }.getType();
-            lista = gson.fromJson(respuesta.getContenido(), tipoLista);
+            try {
+                Type tipoLista = new TypeToken<List<Colaborador>>() {}.getType();
+                lista = gson.fromJson(respuesta.getContenido(), tipoLista);
+                System.out.println("Registros encontrados: " + (lista != null ? lista.size() : 0));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            // Si hay error, imprime qué dijo el servidor
+            System.out.println("Error en API: " + respuesta.getContenido());
         }
         return lista;
     }

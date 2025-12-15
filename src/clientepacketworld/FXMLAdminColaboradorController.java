@@ -6,7 +6,7 @@ import clientepacketworld.pojo.Colaborador;
 import clientepacketworld.utilidad.Utilidades;
 import java.net.URL;
 import java.util.List;
-import java.util.Optional; // Importante para el diálogo
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

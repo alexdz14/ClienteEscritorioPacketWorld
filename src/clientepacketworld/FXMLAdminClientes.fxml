@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientepacketworld.FXMLAdminClientesController">
+   <children>
+      <Pane prefHeight="60.0" prefWidth="950.0" style="-fx-background-color: #005eff;">
+         <children>
+            <Label layoutX="24.0" layoutY="14.0" text="Administración de Clientes" textFill="WHITE">
+               <font><Font name="System Bold" size="22.0" /></font>
+            </Label>
+         </children>
+      </Pane>
+      
+      <Label layoutX="30.0" layoutY="80.0" text="Buscar (Nombre / Correo / Teléfono):" />
+      <TextField fx:id="tfBusqueda" layoutX="300.0" layoutY="75.0" prefHeight="31.0" prefWidth="300.0" promptText="Escribe para buscar..." />
+      <Button layoutX="610.0" layoutY="75.0" mnemonicParsing="false" onAction="#clicBuscar" text="Buscar" />
+      
+      <TableView fx:id="tvClientes" layoutX="30.0" layoutY="120.0" prefHeight="410.0" prefWidth="890.0">
+        <columns>
+          <TableColumn fx:id="tcNombre" prefWidth="200.0" text="Nombre Completo" />
+          <TableColumn fx:id="tcCorreo" prefWidth="200.0" text="Correo Electrónico" />
+          <TableColumn fx:id="tcTelefono" prefWidth="120.0" text="Teléfono" />
+          <TableColumn fx:id="tcDireccion" prefWidth="350.0" text="Dirección" />
+        </columns>
+      </TableView>
+      
+      <Button layoutX="580.0" layoutY="545.0" mnemonicParsing="false" onAction="#clicRegistrar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #27ae60;" text="Registrar" textFill="WHITE" />
+      <Button layoutX="700.0" layoutY="545.0" mnemonicParsing="false" onAction="#clicEditar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #f39c12;" text="Editar" textFill="WHITE" />
+      <Button layoutX="820.0" layoutY="545.0" mnemonicParsing="false" onAction="#clicEliminar" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #c0392b;" text="Eliminar" textFill="WHITE" />
+   </children>
+</AnchorPane>

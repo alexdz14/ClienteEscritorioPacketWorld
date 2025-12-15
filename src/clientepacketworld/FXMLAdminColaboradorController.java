@@ -6,6 +6,7 @@ import clientepacketworld.pojo.Colaborador;
 import clientepacketworld.utilidad.Utilidades;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional; // Importante para el diálogo
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -42,16 +44,20 @@ public class FXMLAdminColaboradorController implements Initializable {
     @FXML
     private TextField tfBusqueda;
 
+    private Colaborador usuarioSesion;
     private ObservableList<Colaborador> listaColaboradores;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
-        cargarDatos(""); // Carga inicial sin filtro
+        cargarDatos("");
+    }
+
+    public void inicializarUsuario(Colaborador usuario) {
+        this.usuarioSesion = usuario;
     }
 
     private void configurarTabla() {
-        // Enlazamos las columnas con los atributos del POJO Colaborador
         tcNoPersonal.setCellValueFactory(new PropertyValueFactory("noPersonal"));
         tcNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         tcPaterno.setCellValueFactory(new PropertyValueFactory("apellidoPaterno"));
@@ -61,7 +67,14 @@ public class FXMLAdminColaboradorController implements Initializable {
     }
 
     private void cargarDatos(String filtro) {
-        List<Colaborador> lista = ColaboradorImp.obtenerColaboradores(filtro.isEmpty() ? " " : filtro);
+        List<Colaborador> lista;
+
+        if (filtro == null || filtro.isEmpty()) {
+            lista = ColaboradorImp.obtenerTodosColaboradores();
+        } else {
+            lista = ColaboradorImp.obtenerColaboradores(filtro);
+        }
+
         if (lista != null) {
             listaColaboradores = FXCollections.observableArrayList(lista);
             tvColaboradores.setItems(listaColaboradores);
@@ -94,14 +107,32 @@ public class FXMLAdminColaboradorController implements Initializable {
     @FXML
     private void clicEliminar(ActionEvent event) {
         Colaborador seleccionado = tvColaboradores.getSelectionModel().getSelectedItem();
+
         if (seleccionado != null) {
-            Respuesta respuesta = ColaboradorImp.eliminarColaborador(seleccionado.getNoPersonal());
-            if (!respuesta.isError()) {
-                Utilidades.mostrarAlertaSimple("Éxito", respuesta.getMensaje(), Alert.AlertType.INFORMATION);
-                cargarDatos("");
-            } else {
-                Utilidades.mostrarAlertaSimple("Error", respuesta.getMensaje(), Alert.AlertType.ERROR);
+            if (usuarioSesion != null && seleccionado.getNoPersonal().equals(usuarioSesion.getNoPersonal())) {
+                Utilidades.mostrarAlertaSimple("Acción denegada",
+                        "No puedes eliminar tu propia cuenta mientras estás logueado.",
+                        Alert.AlertType.WARNING);
+                return;
             }
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmar eliminación");
+            alert.setHeaderText("¿Estás seguro de eliminar a " + seleccionado.getNombre() + "?");
+            alert.setContentText("Esta acción no se puede deshacer.");
+            Optional<ButtonType> respuestaDialogo = alert.showAndWait();
+
+            if (respuestaDialogo.isPresent() && respuestaDialogo.get() == ButtonType.OK) {
+                Respuesta respuesta = ColaboradorImp.eliminarColaborador(seleccionado.getNoPersonal());
+
+                if (!respuesta.isError()) {
+                    Utilidades.mostrarAlertaSimple("Éxito", respuesta.getMensaje(), Alert.AlertType.INFORMATION);
+                    cargarDatos("");
+                } else {
+                    Utilidades.mostrarAlertaSimple("Error", respuesta.getMensaje(), Alert.AlertType.ERROR);
+                }
+            }
+
         } else {
             Utilidades.mostrarAlertaSimple("Selección requerida", "Selecciona un colaborador para eliminar.", Alert.AlertType.WARNING);
         }

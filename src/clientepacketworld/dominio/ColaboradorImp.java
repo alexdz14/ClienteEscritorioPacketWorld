@@ -96,4 +96,19 @@ public class ColaboradorImp {
         }
         return respuesta;
     }
+
+    public static List<Colaborador> obtenerTodosColaboradores() {
+        List<Colaborador> lista = null;
+        String url = Constantes.URL_WS + "colaborador/getAll";
+
+        RespuestaHTTP respuesta = ConexionAPI.peticionGET(url);
+
+        if (respuesta.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Colaborador>>() {
+            }.getType();
+            lista = gson.fromJson(respuesta.getContenido(), tipoLista);
+        }
+        return lista;
+    }
 }

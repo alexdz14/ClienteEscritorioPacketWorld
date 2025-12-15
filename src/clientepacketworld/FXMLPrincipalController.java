@@ -47,6 +47,10 @@ public class FXMLPrincipalController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAdminColaborador.fxml"));
             Parent root = loader.load();
+
+            FXMLAdminColaboradorController controller = loader.getController();
+            controller.inicializarUsuario(this.colaboradorSesion);
+
             Scene escena = new Scene(root);
             Stage escenario = new Stage();
             escenario.setScene(escena);
@@ -55,6 +59,7 @@ public class FXMLPrincipalController implements Initializable {
             escenario.showAndWait();
 
         } catch (Exception e) {
+            e.printStackTrace();
             Utilidades.mostrarAlertaSimple("Error", "No se pudo abrir la ventana: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
@@ -94,7 +99,19 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void clicAdminClientes(ActionEvent event) {
-        Utilidades.mostrarAlertaSimple("Pendiente", "Módulo de Clientes en construcción", Alert.AlertType.INFORMATION);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLAdminClientes.fxml"));
+            Parent root = loader.load();
+
+            Stage escenario = new Stage();
+            escenario.setScene(new Scene(root));
+            escenario.setTitle("Gestión de Clientes");
+            escenario.initModality(Modality.APPLICATION_MODAL);
+            escenario.showAndWait();
+
+        } catch (Exception e) {
+            Utilidades.mostrarAlertaSimple("Error", "No se pudo abrir Clientes: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML

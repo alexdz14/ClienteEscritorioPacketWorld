@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientepacketworld.FXMLFormularioClienteController">
+   <children>
+      <Pane prefHeight="60.0" prefWidth="700.0" style="-fx-background-color: #005eff;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="24.0" layoutY="14.0" text="Registro de Cliente" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      
+      <Label layoutX="30.0" layoutY="80.0" text="Nombre:" />
+      <TextField fx:id="tfNombre" layoutX="30.0" layoutY="100.0" prefWidth="200.0" />
+      
+      <Label layoutX="250.0" layoutY="80.0" text="Apellido Paterno:" />
+      <TextField fx:id="tfPaterno" layoutX="250.0" layoutY="100.0" prefWidth="200.0" />
+      
+      <Label layoutX="470.0" layoutY="80.0" text="Apellido Materno:" />
+      <TextField fx:id="tfMaterno" layoutX="470.0" layoutY="100.0" prefWidth="200.0" />
+      
+      <Label layoutX="30.0" layoutY="150.0" text="Correo Electrónico:" />
+      <TextField fx:id="tfCorreo" layoutX="30.0" layoutY="170.0" prefWidth="300.0" />
+      
+      <Label layoutX="350.0" layoutY="150.0" text="Teléfono:" />
+      <TextField fx:id="tfTelefono" layoutX="350.0" layoutY="170.0" prefWidth="200.0" />
+      
+      <Label layoutX="30.0" layoutY="220.0" text="Calle:" />
+      <TextField fx:id="tfCalle" layoutX="30.0" layoutY="240.0" prefWidth="300.0" />
+      
+      <Label layoutX="350.0" layoutY="220.0" text="Número:" />
+      <TextField fx:id="tfNumero" layoutX="350.0" layoutY="240.0" prefWidth="100.0" />
+      
+      <Label layoutX="470.0" layoutY="220.0" text="C.P.:" />
+      <TextField fx:id="tfCp" layoutX="470.0" layoutY="240.0" prefWidth="120.0" />
+      
+      <Label layoutX="30.0" layoutY="290.0" text="Colonia:" />
+      <TextField fx:id="tfColonia" layoutX="30.0" layoutY="310.0" prefWidth="300.0" />
+      
+      <Button layoutX="200.0" layoutY="450.0" mnemonicParsing="false" onAction="#clicGuardar" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #27ae60;" text="Guardar" textFill="WHITE">
+         <font><Font name="System Bold" size="14.0" /></font>
+      </Button>
+      <Button layoutX="380.0" layoutY="450.0" mnemonicParsing="false" onAction="#clicCancelar" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #c0392b;" text="Cancelar" textFill="WHITE">
+         <font><Font name="System Bold" size="14.0" /></font>
+      </Button>
+   </children>
+</AnchorPane>

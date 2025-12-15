@@ -17,6 +17,22 @@
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/dominio/ColaboradorImp.java</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLPrincipalController.java</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLPrincipal.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminColaborador.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminColaboradorController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioColaborador.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioColaboradorController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/pojo/Unidad.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/dominio/UnidadImp.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminUnidadesController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminUnidades.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioUnidadController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioUnidad.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/pojo/Sucursal.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/dominio/SucursalImp.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminSucursales.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminSucursalesController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioSucursal.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioSucursalController.java</file>
         </group>
     </open-files>
 </project-private>

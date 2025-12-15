@@ -79,6 +79,12 @@ public class FXMLAdminSucursalesController implements Initializable {
     private void clicEliminar(ActionEvent event) {
         Sucursal seleccion = tvSucursales.getSelectionModel().getSelectedItem();
         if (seleccion != null) {
+
+            if ("Inactiva".equalsIgnoreCase(seleccion.getEstatus())) {
+                Utilidades.mostrarAlertaSimple("Operación no válida", "La sucursal ya se encuentra inactiva.", Alert.AlertType.WARNING);
+                return;
+            }
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmar eliminación");
             alert.setHeaderText("¿Estás seguro de eliminar (dar de baja) esta sucursal?");

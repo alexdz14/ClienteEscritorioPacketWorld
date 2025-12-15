@@ -33,6 +33,16 @@
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminSucursalesController.java</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioSucursal.fxml</file>
             <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioSucursalController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/pojo/Cliente.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/dominio/ClienteImp.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminClientesController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLAdminClientes.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioCliente.fxml</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/FXMLFormularioClienteController.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/pojo/Direccion.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/dominio/DireccionImp.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/dto/RSColonia.java</file>
+            <file>file:/D:/stivm/Documentos/NetBeansProjects/ClientePacketWorld/src/clientepacketworld/dto/RSDatosCodigoPostal.java</file>
         </group>
     </open-files>
 </project-private>

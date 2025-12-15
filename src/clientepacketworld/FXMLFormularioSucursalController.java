@@ -59,19 +59,11 @@ public class FXMLFormularioSucursalController implements Initializable {
     }
 
     private void buscarCodigoPostal(String cp) {
-        System.out.println("1. Buscando CP: " + cp);
+        // System.out.println("1. Buscando CP: " + cp); // Puedes comentar los logs si ya funciona
 
         RSDatosCodigoPostal datosCP = DireccionImp.buscarPorCP(cp);
 
-        if (datosCP == null) {
-            System.out.println("2. ERROR: DireccionImp devolvió NULL (Posible error 404 o 500 en API)");
-            return;
-        }
-
-        System.out.println("2. Respuesta API recibida. Error: " + datosCP.isError());
-        System.out.println("3. Colonias encontradas: " + (datosCP.getColonias() != null ? datosCP.getColonias().size() : "NULL"));
-
-        if (!datosCP.isError()) {
+        if (datosCP != null && !datosCP.isError()) {
             Platform.runLater(() -> {
                 tfEstado.setText(datosCP.getEstado());
                 tfCiudad.setText(datosCP.getMunicipio());
@@ -79,10 +71,9 @@ public class FXMLFormularioSucursalController implements Initializable {
                 coloniasCargadas.clear();
                 if (datosCP.getColonias() != null) {
                     coloniasCargadas.addAll(datosCP.getColonias());
-                    System.out.println("4. UI Actualizada con " + coloniasCargadas.size() + " colonias.");
                 }
-                
-                if(!coloniasCargadas.isEmpty()){
+
+                if (!coloniasCargadas.isEmpty()) {
                     cbColonia.getSelectionModel().selectFirst();
                 }
             });
@@ -107,11 +98,14 @@ public class FXMLFormularioSucursalController implements Initializable {
             tfCodigo.setEditable(false);
             tfCodigo.setDisable(true);
 
+            // Cargar las colonias nuevamente
             buscarCodigoPostal(sucursal.getCp());
 
+            // Seleccionar la colonia correcta
             Platform.runLater(() -> {
                 for (RSColonia col : cbColonia.getItems()) {
-                    if (col.getNombre().equalsIgnoreCase(sucursal.getColonia())) {
+                    // <--- CORRECCIÓN AQUÍ: Usamos getColonia() en vez de getNombre()
+                    if (col.getColonia().equalsIgnoreCase(sucursal.getColonia())) {
                         cbColonia.getSelectionModel().select(col);
                         break;
                     }
@@ -131,7 +125,8 @@ public class FXMLFormularioSucursalController implements Initializable {
             sucursal.setCp(tfCp.getText());
 
             if (cbColonia.getValue() != null) {
-                sucursal.setColonia(cbColonia.getValue().getNombre());
+                // <--- CORRECCIÓN AQUÍ: Usamos getColonia() en vez de getNombre()
+                sucursal.setColonia(cbColonia.getValue().getColonia());
             }
 
             sucursal.setCiudad(tfCiudad.getText());

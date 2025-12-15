@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clientepacketworld.FXMLInicioSesionController">
+   <children>
+      <Label layoutX="216.0" layoutY="45.0" text="Packet World">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      
+      <Label layoutX="144.0" layoutY="136.0" text="No. Personal:" />
+      <TextField fx:id="tfNoPersonal" layoutX="236.0" layoutY="131.0" prefHeight="31.0" prefWidth="220.0" promptText="Ej. 123456" />
+      
+      <Label layoutX="155.0" layoutY="192.0" text="Contraseña:" />
+      <PasswordField fx:id="pfContrasenia" layoutX="236.0" layoutY="187.0" prefHeight="31.0" prefWidth="220.0" promptText="******" />
+      
+      <Button layoutX="254.0" layoutY="267.0" mnemonicParsing="false" onAction="#clicIniciarSesion" text="Iniciar Sesión" textFill="#005eff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      
+      <Label fx:id="lbError" layoutX="183.0" layoutY="329.0" prefWidth="300.0" textFill="RED" alignment="CENTER" />
+   </children>
+</AnchorPane>
